@@ -1,5 +1,5 @@
-from automateweb.entity.relatorio import Relatorio
-from automateweb.controller.relatorio import RelatorioController
+from src.automateweb.entity.relatorio import Relatorio
+from src.automateweb.controller.relatorio import RelatorioController
 from typing import List
 from threading import Thread
 import time

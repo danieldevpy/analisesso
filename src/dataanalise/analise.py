@@ -1,9 +1,7 @@
 import pandas as pd
-from automateweb.controller.directory import DirectoryController
+from src.automateweb.controller.directory import DirectoryController
 from typing import Dict
 import os
-import time
-
 
 class DataAnalysis:
 
@@ -58,6 +56,8 @@ class DataAnalysis:
                     except:
                             new_row_value = row_value.split('/')[0]
                             index_linha = df[df['CHAMADO'] == new_row_value].index
+                            if not index_linha:
+                                errors.append(f"Não encontrado código de chamado em linha {i}")
 
                     if not index_linha.empty:
                         match_index = index_linha[0]
@@ -92,7 +92,7 @@ class DataAnalysis:
         msg_final = f'Gerando relatorio final - Progresso ({shape}/{shape}) 100%'
         self.messages.append(msg_final)
         print(msg_final)
-
+        print("errors:", errors)
 
     def treat_for_google_sheet(self):
         df = pd.read_excel(self.path+'/'+'finaldf.xlsx')

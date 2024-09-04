@@ -1,12 +1,6 @@
-from automateweb.controller.gerenciador import GerenciadorRelatorios
-from automateweb.entity.relatorio import Relatorio, Filter
-from analise.controller.analise import DataAnalysis
-from googlesheet.script import insert_rows
-
-# date = ['29/07/2024', '06/08/2024']
-date = ['07/08/2024', '14/08/2024']
-path_all = r'/home/daniel/Downloads/relatorios/all'
-path_temp = r'/home/daniel/Downloads/relatorios/temp'
+from src.automateweb.controller.gerenciador import GerenciadorRelatorios
+from src.automateweb.entity.relatorio import Relatorio, Filter
+from config import date, path_temp
 
 relatorio = Relatorio(
     name="TOTAL DE CHAMADOS",
@@ -61,11 +55,6 @@ relatorio9 = Relatorio(
     filters=[Filter('DATA', date)]
 )
 
-gerenciador = GerenciadorRelatorios([relatorio, relatorio2], path_temp)
+gerenciador = GerenciadorRelatorios([relatorio, relatorio2, relatorio3], path_temp)
 gerenciador.start()
 gerenciador.check()
-#
-# analise = DataAnalysis(path_all)
-# analise.load_dfs()
-# analise.join_dfs()
-

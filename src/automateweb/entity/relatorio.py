@@ -1,7 +1,5 @@
 from dataclasses import dataclass
 from typing import List
-import re
-
 
 @dataclass
 class Filter:
@@ -12,7 +10,6 @@ class Filter:
         return [value.replace('/', '') for value in self.values]
 
 
-            
 @dataclass
 class Relatorio:
     name: str

@@ -1,10 +1,10 @@
-from automateweb.controller.driver import DriverController
-from automateweb.entity.relatorio import Relatorio
-from automateweb.controller import elements_html
-from automateweb.controller.retry import retry
+from src.automateweb.controller.driver import DriverController
+from src.automateweb.entity.relatorio import Relatorio
+from src.automateweb.controller import elements_html
+from src.automateweb.controller.retry import retry
 from selenium.webdriver.common.alert import Alert 
 from selenium.webdriver.support.ui import Select
-from automateweb.controller.directory import DirectoryController
+from src.automateweb.controller.directory import DirectoryController
 import time
 
 
@@ -39,7 +39,7 @@ class RelatorioController:
 
     def login(self):
         # acessa o site de login do sso
-        self.get_page('https://192.168.1.250/SSONOVAIGUACU/login.aspx')
+        self.get_page('https://cisbaf.ssosamu.com:3001/SSONOVAIGUACU/login.aspx')
         # seta o valor no input de usuário
         self.driver_controller.set_value(elements_html.input_usuario, 'Daniel.Fernandes')
         # seta o valor no input de password e já aperta o enter na variavel confirm
